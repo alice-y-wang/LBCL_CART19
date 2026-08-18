@@ -1,7 +1,7 @@
 ################################################################################
 ## Lymphoma CAR-T single-cell RNA-seq: GSEA (fgsea) and pathway visualization
 ##
-## Run 00_setup.R first (loads shared objects).
+## Run 01_setup_and_degs.R first (loads shared objects).
 ##
 ## PATHS:
 ##   All input/output locations are defined in the CONFIG block below, relative
