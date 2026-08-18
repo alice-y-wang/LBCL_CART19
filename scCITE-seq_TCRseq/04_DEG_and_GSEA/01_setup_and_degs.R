@@ -11,11 +11,6 @@
 ##   - The Seurat objects (.RDS) and metadata (.csv) referenced below.
 ##   - A helper script of custom utilities (`utils_script` in CONFIG).
 ##
-## Notes:
-##   - All input/output paths are set in the single CONFIG block below.
-##   - `cell.anno` is the ONE cell-type column used for every analysis. The
-##     annos_level* columns are carried through from the metadata CSV for
-##     reference only; nothing downstream should key off them.
 ################################################################################
 
 # ---- Libraries --------------------------------------------------------------
@@ -47,7 +42,6 @@ setwd(project_dir)
 obj_dir      <- file.path(project_dir, "seurat_objects")
 files_dir    <- file.path(project_dir, "files")
 results_dir  <- file.path(project_dir, "results", "deg")
-utils_script <- file.path(project_dir, "R", "utils.R")   # custom helper functions
 
 dir.create(results_dir, showWarnings = FALSE, recursive = TRUE)
 
@@ -70,7 +64,6 @@ MIN_PCT         <- 0.01
 TEST_USE        <- "wilcox"
 
 set.seed(2024)
-source(utils_script)
 
 colors <- c("#E7A75E", "white", "#4FB7C5")
 
