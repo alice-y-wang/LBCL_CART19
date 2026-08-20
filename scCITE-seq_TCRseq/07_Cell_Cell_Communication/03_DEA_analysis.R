@@ -1702,28 +1702,6 @@ fishers_combined_interaction <- fishers_combined_interaction  %>%
 
 fishers_combined_interaction <- fishers_combined_interaction %>% filter(abs(pathway_score) > -log10(0.05))
 
-p_interaction <- ggplot(fishers_combined_interaction,
-                        aes(x = timepoint,
-                            y = pathway_score,
-                            group = ligand_complex,
-                            color = pathway
-                        )) +
-  geom_line(size = 0.6) +
-  geom_point(size = 2) +
-  geom_text_repel(aes(label = ligand_complex),
-                  size = 3,
-                  show.legend = FALSE,
-                  max.overlaps = 20
-  ) +
-  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
-  scale_alpha_manual(values = c(0.2, 0.9)) +
-  theme_classic() +
-  labs(
-    y = "Signed Log10 P-value",
-    title = "Interaction-level IFN and TNF signaling over time"
-  )
-
-print(p_interaction)
 
 # ---- Pathway-level summaries ------------------------------------------------
 my_colors <- c(
@@ -1734,16 +1712,6 @@ my_colors <- c(
   "IFN2_TNF" = "magenta"
 )
 
-
-# mean signed -log10(padj) per pathway x timepoint
-pathway_summary <- fishers_combined_interaction %>%
-  group_by(timepoint, pathway) %>%
-  summarise(
-    mean_score = mean(pathway_score, na.rm = TRUE),
-    sd_score = sd(pathway_score, na.rm = TRUE),
-    n_interactions = n(),
-    .groups = "drop"
-  )
 
 # same, with 95% confidence intervals
 pathway_summary_score_ci <- fishers_combined_interaction %>%
@@ -1756,29 +1724,6 @@ pathway_summary_score_ci <- fishers_combined_interaction %>%
     ci_lower   = mean_score - qt(0.95, df = n_interactions - 1) * se_score,
     ci_upper   = mean_score + qt(0.95, df = n_interactions - 1) * se_score,
     .groups = "drop"
-  )
-
-# signed -log10(padj), SD ribbon
-p6 <- ggplot(pathway_summary,
-             aes(x = timepoint,
-                 y = mean_score,
-                 color = pathway,
-                 group = pathway)) +
-  geom_line(size = 1.2) +
-  geom_point(size = 2) +
-  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
-  geom_ribbon(aes(ymin = mean_score - sd_score,
-                  ymax = mean_score + sd_score,
-                  fill = pathway),
-              alpha = 0.2,
-              color = NA) +
-  theme_classic() +
-  scale_color_manual(values = my_colors) +
-  scale_fill_manual(values = my_colors) +
-  labs(
-    y = "Mean signed -log10(p-adjusted) ",
-    x = "Timepoint",
-    title = "Temporal dynamics of signaling by combined pathway"
   )
 
 
@@ -1809,6 +1754,5 @@ p6.ci <- ggplot(pathway_summary_score_ci,
 
 
 pdf(file.path(fig_dir, "Opposing_Interactions_PathwayLevel_Linegraph.pdf"), width = 10, height = 5)
-print(p6)
 print(p6.ci)
 dev.off()
