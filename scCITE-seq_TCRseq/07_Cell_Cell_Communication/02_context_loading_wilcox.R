@@ -14,7 +14,7 @@ analysis_dir <- "."
 setwd(analysis_dir)
 
 objects_dir <- "seurat_objects"
-tensor_dir  <- file.path("python_data", "images", "Tensor", "FullDataset_bysample")
+tensor_dir  <- file.path("python_data", "images", "Tensor", "FullDataset_bysample") # set accordingly to analysis pipeline 
 fig_dir     <- file.path("images", "tensor_factors")
 stats_dir   <- file.path(fig_dir, "wilcox_test")
 

@@ -92,12 +92,12 @@ get_gsea_results <- function(df, cell, CAR_status, level, image = FALSE){
     hallmark.results <- fgsea(pathways = hallmark_pathways,
                               stats = rank,
                               minSize = 5,
-                              maxSize = 100)
+                              maxSize = 500)
     
     reactome.results <- fgsea(pathways = reactome_pathways,
                               stats = rank,
                               minSize = 5,
-                              maxSize = 100)
+                              maxSize = 500)
     
     full.results <- rbind(hallmark.results, reactome.results)
     full.results <- full.results %>% dplyr::filter(padj < 0.1)
@@ -153,9 +153,7 @@ for (f in list_dfs){
   full_df <- full_df %>% dplyr::filter(p_val_adj < 0.01)
   
   for (ct in celltypes){
-    if ((ct %in% already_seen) & (level == "Level3")){
-      next
-    }
+   
     ct_df <- full_df %>% dplyr::filter(celltype == ct)
     ct_result <- get_gsea_results(df = ct_df, cell = ct, CAR_status = CAR_status,
                                   level = level, image = TRUE)
