@@ -1,0 +1,36 @@
+Sample ID,Patient ID,Product,Sex,age at diagnosis,Histology,Molecular subtype,Briding therapy,Number of prior therapies,Prior imid,Prior autologous transplant,Ann Arbor Stage,ECOG,B-cell aplasia status,scan 1 days after infusion,scan 1 response,scan 2 days after infusion,scan 2 response,scan 3 days after infusion,CD19 status at relapse,CD19 assessment technique ,Response classification ,"Baseline tumor burden (SPD, cm2) "
+Tisa-N-28,091-1212,Tisa-cel,M,67,LBCL,GCB triple hit,"yes, radiation",7,no,no,iII,2,"aplasia at 1M, 3M",30,PD,,,,CD19 positive,IHC,NR,62.7
+Tisa-N-25,131-0910,Tisa-cel,F,64,LBCL,GCB double hit,no,2,no,no,IV,0,aplasia at 1M,27,PD,51,PD,135,CD19 weak/patchy ,IHC,NR,10.6
+Tisa-N-23,137-1022,Tisa-cel,M,70,CLL to LBCL,non-GCB,"yes, cycle of R-Gem-Ox after apheresis",2,no,no,IV,1,not tested,28,PD,,,,no biopsy ,N/A,NR,83.5
+Tisa-N-24,141-1210,Tisa-cel,M,77,FL to LBCL,GCB-double hit,yes BR pola,3,no,no,III,1,aplasia at 1M,31,PD,,,,CD19 negative ,IHC,NR,99.1
+Tisa-N-31,140-1123,Tisa-cel,F,76,LBCL,non-GCB,yes R pola,4,yes,no,II,1,"aplasia at 1M, lost at M2",29,PD,84,PD,111,CD19 positive,IHC,NR,14.1
+Tisa-R-32,081-0926,Tisa-cel,M,67,LBCL,GCB double hit,yes radiation,3,no,yes,III,0,"aplasia M1, M2",28,CR,61,CR,,N/A,N/A,R,10.1
+Tisa-R-26,071-0620,Tisa-cel,F,70,LBCL,non-GCB,no,2,no,no,III,0,aplasia at 1M and 2 years,30,CR,95,CR,180,N/A,N/A,R,31.6
+Tisa-R-22,134-0928,Tisa-cel,M,61,LBCL,non-GB,no,2,no,no ,IV,0,aplasia at 6M,29,CR,147,CR,,N/A,N/A,R,0*
+Tisa-R-30,139-1125,Tisa-cel,F,34,LBCL,double hit,no,6,no,yes,IV,0,not tested,28,CR,150,CR,,N/A,N/A,R,10.7
+Tisa-N-27,088-1107,Tisa-cel,M,79,LBCL,non-GCB,no,2,no,no,IV,,aplasia at 1M,27,CR,66,CR,136,no biopsy ,N/A,NR,53.4
+Tisa-N-29,129-0811,Tisa-cel,M,69,LBCL,non-GCB,yes (BR-pola),3,no,no,III,2,aplasia at M1 after infusion 1 and M1 &M2 months after second infusion,30,CR,94,CR,146,CD19 positive,IHC,NR,37.2
+Tisa-R-21,084-0926,Tisa-cel,M,52,NHL with CNS involvement ,n/a,yes HD-MTX,6,yes,yes,IV,1,aplasia at M1-6,20,CR,102,CR,384,N/A,N/A,R,3.7
+Tisa-N-20,096-1216,Tisa-cel,F,79,LBCL from FL with CNS involvement ,n/a,yes BR-pola,2,no,no,IV,1,aplasia at 1M,26,PD,40,PD,,no biopsy ,N/A,NR,4.0
+Axi-R-12,083-1001,Axi-cel,M,55,MZL to LBCL,GCB,no,2,no,yes,III,1,not tested,16,CR,135,CT (no PET) w/o evidenceof disease,323,N/A,N/A,R,8.3
+Axi-N-14,092-1129,Axi-cel,M,62,FL to LBCL,"GCB, triple hit",no,3,no,no,IV,0,not tested,31,PD,,,,CD19 negative ,IHC ,NR,14.3
+Axi-N-09,CAR34,Axi-cel,F,56,LBCL,"GCB, triple hit, double expressor",no,3,no,no,IV,1,aplasia at 1M,30,PD,,,,no biopsy ,N/A,NR,55.8
+Axi-R-08,CAR35,Axi-cel,M,65,LBCL,"nonGCB, double expressor",no,3,no,no,I,0,aplasia at 1M,23,CR,,,,N/A,N/A,R,2.7
+Axi-N-07,CAR44,Axi-cel,F,64,LBCL,"nonGCB, non double expressor",yes,3,no,no,I,1,"aplasia at 1M, 3M, 6M",28,CR,90,PD,,CD19 positive,flow cytometry,NR,7.6
+Axi-R-17,CAR45,Axi-cel,M,48,LBCL,"nonGCB, double expressor",yes,5,no,yes,III,1,aplasia at 1M,44,PR,90,CR,,N/A,N/A,R,54.0
+Axi-R-15,CAR47,Axi-cel,M,38,LBCL from FL,"GCB, non double expressor",yes,6,no,yes,IV,1,aplasia at 1M,31,PR,90,CR,,N/A,N/A,R,40.5
+Axi-R-19,CAR49,Axi-cel,M,67,LBCL,"GCB, double expressor",no,2,no,no,IV,1,no data available,59,CR,,,,N/A,N/A,R,3.9
+Axi-N-16,CAR51,Axi-cel,M,52,LBCL,"CLL, Richter's transformation",yes,5,no,no,I,1,no data available,34,PR,63,PD,,no biopsy ,N/A,NR,79.5
+Axi-N-06,CAR57,Axi-cel,M,77,LBCL,"GCB, double expressor",no,2,no,no,IV,1,"aplasia at 1M, 3M",31,CR,94,PD,,CD19 positive,flow cytometry,NR,1.0
+Axi-N-18,CAR60,Axi-cel,M,71,LBCL,"GCB, non double expressor",yes,4,no,no,IV,1,aplasia at 1M,31,PD,,,,CD19 positive,immunoperoxidase,NR,N/A
+Axi-R-13,CAR62,Axi-cel,M,70,"LBCL-like, from FL","GCB-like, non double expressor",no,3,no,yes,III,1,"aplasia at 1M, 3M",34,CR,90,CR,182,N/A,N/A,R,9.3
+Axi-N-10,CAR65_AF,Axi-cel,F,66,LBCL,transformed follicular lymphoma,yes,4,no,no,IV,1,"aplasia at 1M, 3M",30,CR,84,PD,,CD19 positive,flow cytometry,NR,17.7
+Axi-R-11,CAR66,Axi-cel,M,57,LBCL,double hit,no,3,no,yes,III,0,"aplasia at 1M, 3M",36,CR,,,180,N/A,N/A,R,38.1
+Axi-R-03,CAR11,Axi-cel,M,44,LBCL,transformed follicular lymphoma,yes,7,no,yes,IV,1,no data available,29,CR,,,,N/A,N/A,R,79.0
+Axi-R-01,CAR20,Axi-cel,M,42,LBCL,"GCB-like, non double expressor",yes,8,no,yes,IV,0,no data available,30,CR,,,,N/A,N/A,R,7.3
+Axi-P-05,CAR50,Axi-cel,M,65,LBCL,GCB,no,2,no,no,IV,3,no data available,24,PR,,,,N/A,N/A,PR,32.9
+Axi-R-02,CAR70,Axi-cel,M,65,LBCL,"primary cutaneous large B cell lymphoma, leg type",no,4,no,yes,IV,1,aplasia at 1M,36,CR,,,,N/A,N/A,R,16.1
+Axi-R-04,CAR76,Axi-cel,M,38,transformed marginal zone lymphoma,transformed marginal zone lymphoma,no,6,no,no,IV,1,aplasia at 1M,28,CR,91,CR,188,N/A,N/A,R,72.4
+,,,,,,,,,,,,,,,,,,,,,,
+Axi-cel - Axicabtagene Ciloleucel; Tisa-cel - Tisagenlecleucel; GCB - germinal center B-cell like; BR - Bendamustine Rituximab; pola - polatuzumab; HD-MTX - high dose methotrexate; Gem-ox - gemcitabine-oxaliplatin; N/A - not applicable/available; IHC- immunohistochemistry; R - responder; NR- non-responder; PR-partial responder ,,,,,,,,,,,,,,,,,,,,,,
+*patient failed collection for autologous transplant on mulitple attempts and was in PET-CR at the time of treatment,,,,,,,,,,,,,,,,,,,,,,
