@@ -33,9 +33,9 @@ col_high <- "#4FB7C5"
 
 set.seed(2024)
 
-# ============================================================================ #
-# 1. Load LIANA DEA rank-aggregate tables (one per condition)
-# ============================================================================ #
+
+# 1. Load LIANA DEA rank-aggregate tables (one per condition) # ----------------
+
 dea.car.tdnD0    <- read_csv(file.path(dea_dir, "LIANA_DEA_CAR_TDN_D0_rank_agg_ALL.csv"))
 dea.noncar.aph   <- read_csv(file.path(dea_dir, "LIANA_DEA_NonCAR_APH_rank_agg_ALL.csv"))
 dea.car.peak     <- read_csv(file.path(dea_dir, "LIANA_DEA_CAR_Peak_rank_agg_ALL.csv"))
@@ -44,9 +44,9 @@ dea.car.week4    <- read_csv(file.path(dea_dir, "LIANA_DEA_CAR_Week4_rank_agg_AL
 # same order as `conditions`
 dataframes <- list(dea.car.tdnD0, dea.noncar.aph, dea.car.peak, dea.car.week4)
 
-# ============================================================================ #
-# 2. Fisher's method helper
-# ============================================================================ #
+
+# 2. Fisher's method helper # ----------------
+
 apply_fisher <- function(pvalues) {
   # Remove NA values
   pvalues <- pvalues[!is.na(pvalues)]
@@ -66,10 +66,10 @@ apply_fisher <- function(pvalues) {
   ))
 }
 
-# ============================================================================ #
-# 3. Combine p-values across TARGETS, per (source, ligand, receptor)
+
+# 3. Combine p-values across TARGETS, per (source, ligand, receptor) # ----------------
 #    -- one pass on ligand p-values, one on interaction p-values
-# ============================================================================ #
+
 for (i in 1:length(conditions)){
   df <- dataframes[[i]]
   fishers_results <- df %>%
@@ -152,10 +152,10 @@ for (i in 1:length(conditions)){
   
 }
 
-# ============================================================================ #
-# 4. Combine p-values across SOURCES, per (target, ligand, receptor)
+
+# 4. Combine p-values across SOURCES, per (target, ligand, receptor) # ----------------
 #    -- receptor p-values
-# ============================================================================ #
+
 for (i in 1:length(conditions)){
   df <- dataframes[[i]]
   fishers_results <- df %>%
@@ -199,9 +199,9 @@ for (i in 1:length(conditions)){
   
 }
 
-# ============================================================================ #
-# 5. Exploratory: top ligand-based interactions per condition x cell group
-# ============================================================================ #
+
+# 5. Exploratory: top ligand-based interactions per condition x cell group # ----------------
+
 list_celltypes <- list(myeloid.cells) # or list(t.cells)
 
 for (i in 1:length(conditions)){
@@ -258,9 +258,9 @@ for (i in 1:length(conditions)){
   }
 }
 
-# ============================================================================ #
-# 6. Curated ligand-based figures: T cells at APH
-# ============================================================================ #
+
+# 6. Curated ligand-based figures: T cells at APH # ----------------
+
 fishers_results <- read_csv(file.path(dea_dir, paste0(conditions[2], "_fisher_ligand_results.csv")))
 
 top_interactions <- fishers_results %>%
@@ -340,9 +340,9 @@ dev.off()
 
 
 
-# ============================================================================ #
-# 7. Curated ligand-based figures: T cells, CAR+ TDN-D0
-# ============================================================================ #
+
+# 7. Curated ligand-based figures: T cells, CAR+ TDN-D0 # ----------------
+
 fishers_results <- read_csv(file.path(dea_dir, paste0(conditions[1], "_fisher_ligand_results.csv")))
 
 top_interactions <- fishers_results %>%
@@ -445,9 +445,9 @@ dev.off()
 
 
 
-# ============================================================================ #
-# 8. Curated ligand-based figures: T cells, CAR+ Peak
-# ============================================================================ #
+
+# 8. Curated ligand-based figures: T cells, CAR+ Peak # ----------------
+
 fishers_results <- read_csv(file.path(dea_dir, paste0(conditions[3], "_fisher_ligand_results.csv")))
 
 top_interactions <- fishers_results %>%
@@ -547,9 +547,9 @@ print(p2)
 dev.off()
 
 
-# ============================================================================ #
-# 9. Curated ligand-based figures: myeloid, APH
-# ============================================================================ #
+
+# 9. Curated ligand-based figures: myeloid, APH # ----------------
+
 fishers_results <- read_csv(file.path(dea_dir, paste0(conditions[2], "_fisher_ligand_results.csv")))
 
 top_interactions <- fishers_results %>%
@@ -650,9 +650,9 @@ print(p2)
 dev.off()
 
 
-# ============================================================================ #
-# 10. Curated ligand-based figures: myeloid, CAR+ TDN-D0
-# ============================================================================ #
+
+# 10. Curated ligand-based figures: myeloid, CAR+ TDN-D0 # ----------------
+
 fishers_results <- read_csv(file.path(dea_dir, paste0(conditions[1], "_fisher_ligand_results.csv")))
 
 top_interactions <- fishers_results %>%
@@ -746,9 +746,9 @@ print(p2)
 dev.off()
 
 
-# ============================================================================ #
-# 11. Curated ligand-based figures: myeloid, CAR+ Peak
-# ============================================================================ #
+
+# 11. Curated ligand-based figures: myeloid, CAR+ Peak # ----------------
+
 fishers_results <- read_csv(file.path(dea_dir, paste0(conditions[3], "_fisher_ligand_results.csv")))
 
 top_interactions <- fishers_results %>%
@@ -853,9 +853,9 @@ print(p2)
 dev.off()
 
 
-# ============================================================================ #
-# 12. Concatenate Fisher ligand results across timepoints
-# ============================================================================ #
+
+# 12. Concatenate Fisher ligand results across timepoints # ----------------
+
 fishers_results_tdnd0 <- read_csv(file.path(dea_dir, paste0(conditions[1], "_fisher_ligand_results.csv")))
 fishers_results_aph   <- read_csv(file.path(dea_dir, paste0(conditions[2], "_fisher_ligand_results.csv")))
 fishers_results_peak  <- read_csv(file.path(dea_dir, paste0(conditions[3], "_fisher_ligand_results.csv")))
@@ -874,15 +874,14 @@ fishers_all <- do.call(rbind, list(
 ))
 fishers_all$timepoint <- factor(fishers_all$timepoint, levels = c("APH", "TDN-D0", "Peak", "Week4"))
 
+
+# 13. Line graph: TNF / LTA / LTB signaling over time # ---------------
+
 fishers_all_plot <- fishers_all %>% filter(source %in% t.cells) %>%
   filter(combined_padj < 0.01) %>%
   filter(ligand_complex %in% c("TNF", "LTA", "LTB")) %>%
   filter(receptor_complex %in% c("TNFRSF1B",
                                  "TNFRSF1A", "TNFRSF1A_TNFRSF1B"))
-
-# ============================================================================ #
-# 13. Line graph: TNF / LTA / LTB signaling over time
-# ============================================================================ #
 pdf(file.path(fig_dir, "TNF_LTA_LTB_Interactions.pdf"), width = 10, height = 6)
 
 print(
@@ -894,7 +893,7 @@ print(
   )) +
     geom_line() +
     geom_point(size = 2) +
-    geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+    geom_hline(yintercept = 0, linetype = "dashed", color = "black") +
     geom_text_repel(
       data = fishers_all_plot,
       aes(label = paste0(ligand_complex, "^", receptor_complex)),
@@ -912,9 +911,9 @@ print(
 
 dev.off()
 
-# ============================================================================ #
-# 14. Exploratory: top receptor-based interactions per condition x cell group
-# ============================================================================ #
+
+# 14. Exploratory: top receptor-based interactions per condition x cell group # ----------------
+
 list_celltypes <- list(t.cells, myeloid.cells)
 
 for (i in 1:length(conditions)){
@@ -971,9 +970,9 @@ for (i in 1:length(conditions)){
   }
 }
 
-# ============================================================================ #
-# 15. Curated receptor-based figures: T cells,  APH
-# ============================================================================ #
+
+# 15. Curated receptor-based figures: T cells,  APH # ----------------
+
 fishers_results <- read_csv(file.path(dea_dir, paste0(conditions[2], "_fisher_receptor_results.csv")))
 
 top_interactions <- fishers_results %>%
@@ -1070,9 +1069,9 @@ print(p1)
 print(p2)
 dev.off()
 
-# ============================================================================ #
-# 16. Curated receptor-based figures: T cells, CAR+ TDN-D0
-# ============================================================================ #
+
+# 16. Curated receptor-based figures: T cells, CAR+ TDN-D0 # ----------------
+
 fishers_results <- read_csv(file.path(dea_dir, paste0(conditions[1], "_fisher_receptor_results.csv")))
 
 top_interactions <- fishers_results %>%
@@ -1172,9 +1171,9 @@ print(p1)
 print(p2)
 dev.off()
 
-# ============================================================================ #
-# 17. Curated receptor-based figures: T cells, CAR+ Peak
-# ============================================================================ #
+
+# 17. Curated receptor-based figures: T cells, CAR+ Peak # ----------------
+
 fishers_results <- read_csv(file.path(dea_dir, paste0(conditions[3], "_fisher_receptor_results.csv")))
 
 top_interactions <- fishers_results %>%
@@ -1276,9 +1275,9 @@ print(p1)
 print(p2)
 dev.off()
 
-# ============================================================================ #
-# 18. Curated receptor-based figures: myeloid,  APH
-# ============================================================================ #
+
+# 18. Curated receptor-based figures: myeloid,  APH # ----------------
+
 fishers_results <- read_csv(file.path(dea_dir, paste0(conditions[2], "_fisher_receptor_results.csv")))
 
 top_interactions <- fishers_results %>%
@@ -1384,9 +1383,9 @@ print(p1)
 print(p2)
 dev.off()
 
-# ============================================================================ #
-# 19. Curated receptor-based figures: myeloid, CAR+ TDN-D0
-# ============================================================================ #
+
+# 19. Curated receptor-based figures: myeloid, CAR+ TDN-D0 # ----------------
+
 fishers_results <- read_csv(file.path(dea_dir, paste0(conditions[1], "_fisher_receptor_results.csv")))
 
 top_interactions <- fishers_results %>%
@@ -1486,9 +1485,9 @@ print(p1)
 print(p2)
 dev.off()
 
-# ============================================================================ #
-# 20. Curated receptor-based figures: myeloid, CAR+ Peak
-# ============================================================================ #
+
+# 20. Curated receptor-based figures: myeloid, CAR+ Peak # ----------------
+
 fishers_results <- read_csv(file.path(dea_dir, paste0(conditions[3], "_fisher_receptor_results.csv")))
 
 top_interactions <- fishers_results %>%
@@ -1584,9 +1583,9 @@ print(p1)
 print(p2)
 dev.off()
 
-# ============================================================================ #
-# 21. Interferon-stimulated ligand sets and pathway-level temporal dynamics
-# ============================================================================ #
+
+# 21. Interferon-stimulated ligand sets and pathway-level temporal dynamics # ----------------
+
 IFN_I_high <- c(
   "CXCL10","TNFSF10",   # TRAIL
   "TNFSF13B",  # BAFF
@@ -1606,7 +1605,7 @@ IFN_I_moderate <- c(
 IFN_II_high <- c(
   "CXCL9", "CXCL10","CXCL11","CD274", "TNFSF10",
   "ICAM1","VCAM1","B2M","HLA-A","HLA-B","HLA-C",
-  "MICA","MICB","ULBP1","ULBP2","ULBP3")
+  "MICA","MICB","ULBP1","ULBP2","ULBP3", "IFNG")
 
 IFN_II_moderate <- c(
   "CCL5","CXCL16","IL15","IL15RA","IL32",
@@ -1643,7 +1642,8 @@ IFN1_interactions <- c(
   "CCL4_CCR1", "CCL4_CCR3", "CCL4_CCR5", "CCL4_CCR8", "CCL4_ACKR2",
   "IL15_IL2RA", "IL15_IL15RA_IL2RB_IL2RG",
   "FLT3LG_FLT3",
-  "ICAM1_ITGAL_ITGB2", "ICAM1_ITGAM_ITGB2", "ICAM1_ITGAX_ITGB2"
+  "ICAM1_ITGAL_ITGB2", "ICAM1_ITGAM_ITGB2", "ICAM1_ITGAX_ITGB2",
+  "IFNG_IFNGR1_IFNGR2", "IFNG_IFNGR1", "IFNG_IFNGR2"
 )
 
 fishers_type1_clean <- fishers_type1 %>% filter(interaction %in% IFN1_interactions)
