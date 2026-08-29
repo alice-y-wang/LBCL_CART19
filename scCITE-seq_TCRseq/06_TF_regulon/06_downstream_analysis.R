@@ -223,11 +223,11 @@ print(table(mono.metacell$timepoint == "none"))
 # CAR T cell waterfall plots (CR vs PD)
 # ============================================================================ #
 tnk.idents.pairs <- list(
-  c("CD4 EM-like|TDN|CR",   "CD4 EM-like|TDN|PD"),
-  c("CD4 EM-like|Peak|CR",  "CD4 EM-like|Peak|PD"),
-  c("CD8 EM|TDN|CR",        "CD8 EM|TDN|PD"),
-  c("CD8 EM|Peak|CR",       "CD8 EM|Peak|PD"),
-  c("CD8 EM|Week4|CR",      "CD8 EM|Week4|PD")
+  c("CD4 TEM-like|TDN|CR",   "CD4 TEM-like|TDN|PD"),
+  c("CD4 TEM-like|Peak|CR",  "CD4 TEM-like|Peak|PD"),
+  c("CD8 TEM|TDN|CR",        "CD8 TEM|TDN|PD"),
+  c("CD8 TEM|Peak|CR",       "CD8 TEM|Peak|PD"),
+  c("CD8 TEM|Week4|CR",      "CD8 TEM|Week4|PD")
 )
 
 Idents(tnk.car.metacell) <- "celltype_timepoint_response"

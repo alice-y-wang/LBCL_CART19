@@ -32,13 +32,14 @@ cellranger.path <- "/path/to/cellranger/output/"
 analysis.path   <- "/path/to/analysis/output/"
 setwd(analysis.path)
 
+# replace with sample names
 sample.names <- c(
-  "SAMPLE1-APH",
-  "SAMPLE1-TDN",
-  "SAMPLE1-D7",
-  "SAMPLE1-4W",
-  "SAMPLE1-D0",
-  "SAMPLE2-TDN"
+  "PT1-APH",
+  "PT1-TDN",
+  "PT1-D7",
+  "PT1-4W",
+  "PT2-D0",
+  "PT2-TDN"
 )
 
 cell_cycle_genes_path <- "/path/to/regev_lab_cell_cycle_genes.txt"

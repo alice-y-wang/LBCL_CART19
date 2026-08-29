@@ -101,7 +101,7 @@ rownames(adt_pb)      <- clean_markers(rownames(adt_pb))
 
 # ---- cell pair lists --------------------------------------------------------
 cell_pairs <- list(
-  c("CD8 EM", "CD8 TEM")
+  c("CD8 TEM", "CD8 TEM")
 )
 
 

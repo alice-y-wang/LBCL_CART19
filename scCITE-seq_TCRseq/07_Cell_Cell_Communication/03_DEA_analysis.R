@@ -23,7 +23,7 @@ for (d in c(dea_dir, fig_dir, files_dir)) dir.create(d, recursive = TRUE, showWa
 conditions <- c("CAR_TDN_D0", "NonCAR_APH", "CAR_Peak", "CAR_Week4")
 
 # Cell-type groupings (values of cell.anno)
-t.cells       <- c("Proliferating", "CD8 EM", "CD4 EM-like")
+t.cells       <- c("Proliferating", "CD8 TEM", "CD4 TEM-like")
 myeloid.cells <- c("CD14 Mono", "CD16 Mono", "Dendritic Cell")
 
 # Diverging palette shared by every interaction-statistic scale
@@ -216,7 +216,7 @@ for (i in 1:length(conditions)){
       celltype <- "Myeloid"
     } else if ("Dendritic Cell" %in% c){
       celltype <- "DC"
-    } else if ("CD4 EM-like" %in% c){
+    } else if ("CD4 TEM-like" %in% c){
       celltype <- "All_Tcell"
     }
     top_interactions <- fishers_results %>%
@@ -928,7 +928,7 @@ for (i in 1:length(conditions)){
       celltype <- "All_Myeloid"
     } else if ("Dendritic Cell" %in% c){
       celltype <- "DC"
-    } else if ("CD4 EM-like" %in% c){
+    } else if ("CD4 TEM-like" %in% c){
       celltype <- "All_TCell"
     }
     top_interactions <- fishers_results %>%
@@ -1617,7 +1617,7 @@ IFN_II_moderate <- c(
 # ---- Type I IFN -------------------------------------------------------------
 fishers_type1 <- fishers_all %>% filter(ligand_complex %in% c(IFN_I_high, IFN_I_moderate)) %>%
   filter(combined_padj < 0.01) %>%
-  filter(source %in% c(myeloid.cells, "CD8 EM", "CD4 EM-like", "Proliferating")) %>%
+  filter(source %in% c(myeloid.cells, "CD8 TEM", "CD4 TEM-like", "Proliferating")) %>%
   mutate(interaction = paste(ligand_complex, receptor_complex, sep = "_"),
          sig = combined_padj < 0.01)
 
@@ -1651,7 +1651,7 @@ fishers_type1_clean <- fishers_type1 %>% filter(interaction %in% IFN1_interactio
 # ---- Type II IFN ------------------------------------------------------------
 fishers_type2 <- fishers_all %>% filter(ligand_complex %in% c(IFN_II_high, IFN_II_moderate)) %>%
   filter(combined_padj < 0.01) %>%
-  filter(source %in% c(myeloid.cells, "CD8 EM", "CD4 EM-like", "Proliferating")) %>%
+  filter(source %in% c(myeloid.cells, "CD8 TEM", "CD4 TEM-like", "Proliferating")) %>%
   mutate(interaction = paste(ligand_complex, receptor_complex, sep = "_"),
          sig = combined_padj < 0.01)
 

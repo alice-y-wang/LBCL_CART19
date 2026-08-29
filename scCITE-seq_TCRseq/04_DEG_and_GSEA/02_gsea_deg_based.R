@@ -597,8 +597,8 @@ plot_grouped_fgsea_heatmaps <- function(combined, celltype, columns_order, colum
 
 simplify <- "SIMPLE"
 
-noncar_cd8em <- readRDS(fgsea_file(fgsea_rds_name("NonCAR", "Level2", "CD8 EM")))
-car_cd8em    <- readRDS(fgsea_file(fgsea_rds_name("CAR",    "Level2", "CD8 EM")))
+noncar_cd8em <- readRDS(fgsea_file(fgsea_rds_name("NonCAR", "Level2", "CD8 TEM")))
+car_cd8em    <- readRDS(fgsea_file(fgsea_rds_name("CAR",    "Level2", "CD8 TEM")))
 
 names(noncar_cd8em) <- paste0("NonCAR_", names(noncar_cd8em))
 names(car_cd8em)    <- paste0("CAR_",    names(car_cd8em))
@@ -622,11 +622,11 @@ cd8em_groups <- c(rep("CAR", 3), rep("NonCAR", 4))
 
 plot_grouped_fgsea_heatmaps(
   combined,
-  celltype      = "CD8 EM All",
+  celltype      = "CD8 TEM All",
   columns_order = cd8em_cols,
   column_groups = cd8em_groups,
   out_pdf = file.path(heatmap_simple_dir,
-                      paste0(simplify, "_CD8_EM_HReact_01pval_heatmap_", run_tag, ".pdf"))
+                      paste0(simplify, "_CD8_TEM_HReact_01pval_heatmap_", run_tag, ".pdf"))
 )
 
 # ============================================================================ #
@@ -671,11 +671,11 @@ plot_grouped_fgsea_heatmaps(
 )
 
 # ============================================================================ #
-# 5. CD4 EM-like
+# 5. CD4 TEM-like
 # ============================================================================ #
 
-noncar_cd4em <- readRDS(fgsea_file(fgsea_rds_name("NonCAR", "Level2", "CD4 EMCM")))
-car_cd4em    <- readRDS(fgsea_file(fgsea_rds_name("CAR",    "Level2", "CD4 EMCM")))
+noncar_cd4em <- readRDS(fgsea_file(fgsea_rds_name("NonCAR", "Level2", "CD4 TEM-like")))
+car_cd4em    <- readRDS(fgsea_file(fgsea_rds_name("CAR",    "Level2", "CD4 TEM-like")))
 
 names(noncar_cd4em) <- paste0("NonCAR_", names(noncar_cd4em))
 names(car_cd4em)    <- paste0("CAR_",    names(car_cd4em))
@@ -697,9 +697,9 @@ cd4_groups <- c("CAR", "CAR", "NonCAR", "NonCAR", "NonCAR", "NonCAR")
 
 plot_grouped_fgsea_heatmaps(
   combined,
-  celltype      = "CD4 EM-like All",
+  celltype      = "CD4 TEM-like All",
   columns_order = cd4_cols,
   column_groups = cd4_groups,
   out_pdf = file.path(heatmap_simple_dir,
-                      paste0(simplify, "_CD4_EMlike_HReact_01pval_heatmap_GroupedGeneSets_", run_tag, ".pdf"))
+                      paste0(simplify, "_CD4_TEMlike_HReact_01pval_heatmap_GroupedGeneSets_", run_tag, ".pdf"))
 )
