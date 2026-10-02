@@ -28,5 +28,5 @@ TBD
 ---
 
 **Note**  
-Claude Sonnet 4.6 was used to clean up and reformat scripts in this repository, but maintaining pipelines used to generate figures and perform analyses. 
+Claude Sonnet 4.6 was used to clean up and reformat scripts in this repository. Authors ensured that pipelines to perform analyses were maintained. 
 
