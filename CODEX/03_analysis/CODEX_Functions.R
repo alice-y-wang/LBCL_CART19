@@ -9,16 +9,16 @@ L2_COL     <- "cell_type_final_subtypes_myeloid5v2"    # level 2 (15 cell types)
 
 # -- Clinical response and patient labels --------------------------------------
 RESPONSE_MAP <- c(
-  "DLBCL_10858"    = "PD", "DLBCL_25913A1"   = "PD", "DLBCL_34774"   = "PD",
-  "DLBCL_402641A"  = "PD", "DLBCL_CS207490"  = "PD",
-  "DLBCL_184419A"  = "CR", "DLBCL_31361C"    = "CR", "DLBCL_38979"   = "CR",
-  "DLBCL_SP206535" = "CR", "DLBCL_SP2223235" = "CR"
+  "LBCL_10858"    = "PD", "LBCL_25913A1"   = "PD", "LBCL_34774"   = "PD",
+  "LBCL_402641A"  = "PD", "LBCL_CS207490"  = "PD",
+  "LBCL_184419A"  = "CR", "LBCL_31361C"    = "CR", "LBCL_38979"   = "CR",
+  "LBCL_SP206535" = "CR", "LBCL_SP2223235" = "CR"
 )
 PATIENT_LABELS <- c(
-  "DLBCL_10858"    = "PT14", "DLBCL_25913A1"   = "PT10", "DLBCL_34774" = "PT9",
-  "DLBCL_402641A"  = "PT12", "DLBCL_CS207490"  = "PT11",
-  "DLBCL_184419A"  = "PT8",  "DLBCL_31361C"    = "PT4",  "DLBCL_38979" = "PT6",
-  "DLBCL_SP206535" = "PT7",  "DLBCL_SP2223235" = "PT5"
+  "LBCL_10858"    = "PT14", "LBCL_25913A1"   = "PT10", "LBCL_34774" = "PT9",
+  "LBCL_402641A"  = "PT12", "LBCL_CS207490"  = "PT11",
+  "LBCL_184419A"  = "PT8",  "LBCL_31361C"    = "PT4",  "LBCL_38979" = "PT6",
+  "LBCL_SP206535" = "PT7",  "LBCL_SP2223235" = "PT5"
 )
 SAMPLE_ORDER  <- c(sort(names(RESPONSE_MAP)[RESPONSE_MAP == "PD"]),
                    sort(names(RESPONSE_MAP)[RESPONSE_MAP == "CR"]))
@@ -75,16 +75,16 @@ safe_name <- function(x) gsub("[^A-Za-z0-9]+", "_", x)
 # ==============================================================================
 
 reintegrate_sketch_rpca <- function(obj, markers, ncells = 200000, npcs = 15,
-                                    reference = "DLBCL_34774", merge_small = TRUE) {
+                                    reference = "LBCL_34774", merge_small = TRUE) {
   DefaultAssay(obj) <- "CODEX"
   if ("sketch" %in% Assays(obj)) obj[["sketch"]] <- NULL
   obj <- DietSeurat(obj, assays = "CODEX", layers = c("counts", "data"),
                     dimreducs = NULL, graphs = NULL)
   if ("scale.data" %in% Layers(obj)) obj[["CODEX"]]$scale.data <- NULL
 
-  if (merge_small && "DLBCL_SP2223235" %in% names(which(table(obj$orig.ident) < 200))) {
-    obj$orig.ident[obj$orig.ident %in% c("DLBCL_SP206535", "DLBCL_SP2223235")] <-
-      "DLBCL_SP206535_SP2223235"
+  if (merge_small && "LBCL_SP2223235" %in% names(which(table(obj$orig.ident) < 200))) {
+    obj$orig.ident[obj$orig.ident %in% c("LBCL_SP206535", "LBCL_SP2223235")] <-
+      "LBCL_SP206535_SP2223235"
   }
 
   obj <- JoinLayers(obj)
@@ -132,7 +132,7 @@ cluster_sketch_project <- function(obj, markers, res, npcs = 15) {
 }
 
 reintegrate_cluster_nosketch <- function(obj, markers, res, merge_samples,
-                                         npcs = 15, reference = "DLBCL_34774") {
+                                         npcs = 15, reference = "LBCL_34774") {
   DefaultAssay(obj) <- "CODEX"
   obj <- DietSeurat(obj, assays = "CODEX", layers = c("counts", "data"),
                     dimreducs = NULL, graphs = NULL)
