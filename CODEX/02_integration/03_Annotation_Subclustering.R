@@ -230,10 +230,10 @@ L1[L1 %in% c("Dendritic Cells", "Macrophage", "Monocytes", "pDC")] <- "Myeloid_c
 gran_cells <- names(L1)[L1 %in% "Granulocytes"]
 cd4t_cells <- names(L1)[L1 %in% "CD4+ T-Cells"]
 ids_gran <- lineage_cluster_ids_nosketch(obj, gran_cells, GRAN_CD4T_MARKERS, 0.4,
-                                         c("DLBCL_CS207490", "DLBCL_402641A", "DLBCL_SP2223235"),
+                                         c("LBCL_CS207490", "LBCL_402641A", "LBCL_SP2223235"),
                                          "Gran_reint")
 ids_cd4t <- lineage_cluster_ids_nosketch(obj, cd4t_cells, GRAN_CD4T_MARKERS, 0.4,
-                                         c("DLBCL_SP206535", "DLBCL_SP2223235"), "CD4T_reint")
+                                         c("LBCL_SP206535", "LBCL_SP2223235"), "CD4T_reint")
 set_label(ids_gran, c(0, 5, 7), "Lymphoma")
 set_label(ids_gran, 2,          "Myeloid_cell")
 set_label(ids_gran, 3,          "CD4+ T-Cells")
