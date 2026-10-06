@@ -7,7 +7,7 @@ library(RColorBrewer)
 
 BASE_DIR   <- "/path/to/your/"
 
-REFERENCE_SAMPLE <- "DLBCL_34774" 
+REFERENCE_SAMPLE <- "LBCL_34774" 
 SKETCH_CELLS     <- 500000         
 INTEGRATION_DIMS <- 1:30
 CLUSTER_RES      <- c(0.25, 0.5, 0.75)
