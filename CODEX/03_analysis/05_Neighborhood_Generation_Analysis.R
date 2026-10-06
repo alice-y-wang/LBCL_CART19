@@ -138,7 +138,7 @@ pp1 <- ggplot(cc_ct, aes(x = CN, y = Freq, fill = CellType)) +
 ggsave(pp1, filename = file.path(FIG_DIR, paste0("FreqPlot_CNsByCellType_", tag, ".pdf")),
        width = 9, height = 12)
 
-cn_meta$sample_label <- paste0(PATIENT_LABELS[cn_meta$sample], ":", sub("^DLBCL_", "", cn_meta$sample))
+cn_meta$sample_label <- paste0(PATIENT_LABELS[cn_meta$sample], ":", sub("^LBCL_", "", cn_meta$sample))
 cn_meta$sample_label <- factor(cn_meta$sample_label,
                                levels = unique(cn_meta$sample_label[order(cn_meta$sample)]))
 cc_sample <- as.data.frame(table(Sample = cn_meta$sample_label, CN = cn_meta$CN))
