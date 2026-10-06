@@ -4,8 +4,8 @@
 
 # -- Metadata columns of the final annotated object ----------------------------
 SAMPLE_COL <- "orig.ident"
-L1_COL     <- "cell_type_final_L1_reconciled"          # level 1 (8 cell types)
-L2_COL     <- "cell_type_final_subtypes_myeloid5v2"    # level 2 (15 cell types)
+L1_COL     <- "cell_type_level1"          # level 1 (8 cell types)
+L2_COL     <- "cell_type_level2"    # level 2 (15 cell types)
 
 # -- Clinical response and patient labels --------------------------------------
 RESPONSE_MAP <- c(
