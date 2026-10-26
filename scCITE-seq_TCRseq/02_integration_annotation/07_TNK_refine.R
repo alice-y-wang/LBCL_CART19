@@ -409,11 +409,11 @@ tnk.theta$final_anno_level2[tnk.theta$final_anno_level1 == "Treg"]            <-
 tnk.theta$final_anno_level2[tnk.theta$final_anno_level1 == "gdT"]             <- "gdT"
 tnk.theta$final_anno_level2[tnk.theta$final_anno_level1== "MAIT"]            <- "MAIT"
 tnk.theta$final_anno_level2[tnk.theta$CD4.subclustering %in%
-                              c("2_5","2_2")]                                                       <- "CD4 Naive-like"
+                              c("2_5","2_2")]                                                       <- "CD4 Naive"
 tnk.theta$final_anno_level2[tnk.theta$CD4.subclustering %in%
-                              c("2_0","2_1","2_3","2_4","2_6")]                                     <- "CD4 EM-like"
+                              c("2_0","2_1","2_3","2_4","2_6")]                                     <- "CD4 TEM-like"
 tnk.theta$final_anno_level2[tnk.theta$CD8.subclustering %in%
-                              c("3_0","3_1","3_2")]                                                  <- "CD8 EM"
-tnk.theta$final_anno_level2[tnk.theta$CD8.subclustering == "3_3"]       <- "CD8 Naive-like"
-tnk.theta$final_anno_level2[tnk.theta$c9.subclustering == "9_2"]        <- "CD8 EM"
+                              c("3_0","3_1","3_2")]                                                  <- "CD8 TEM"
+tnk.theta$final_anno_level2[tnk.theta$CD8.subclustering == "3_3"]       <- "CD8 Naive"
+tnk.theta$final_anno_level2[tnk.theta$c9.subclustering == "9_2"]        <- "CD8 TEM"
 

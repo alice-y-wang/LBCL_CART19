@@ -103,7 +103,7 @@ merged.obj.check <- IntegrateLayers(
 merged.obj.check[["RNA"]] <- JoinLayers(merged.obj.check[["RNA"]])
 
 merged.obj.check <- FindNeighbors(merged.obj.check, reduction = "harmony.tnk", dims = 1:50, graph.name = c("harmony.nn", "harmony.snn"), prune.SNN = 1/25) # use 50 dims for neighbors
-merged.obj.check <- FindClusters(merged.obj.check, resolution = c(0.1, 0.2, 0.3, 0.4, 0.6), graph.name = "harmony.snn")
+merged.obj.check <- FindClusters(merged.obj.check, resolution = c(0.1, 0.2, 0.3, 0.35, 0.4, 0.6), graph.name = "harmony.snn")
 merged.obj.check <- RunUMAP(merged.obj.check, dims = 1:50, min.dist=0.1, n.neighbors = 100L, reduction = "harmony.tnk", reduction.name = "harmony.tnk.umap", return.model=TRUE)
 
 saveRDS(merged.obj.check, "seurat_objects/all_samples_TNK_mono_dying_removed_Harmony.RDS")

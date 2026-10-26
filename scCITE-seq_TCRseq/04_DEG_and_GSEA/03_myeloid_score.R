@@ -1,5 +1,5 @@
 ################################################################################
-## Module scoring of the interferon / TNFa / TGFb signatures in the monocyte
+## Module scoring of the interferon / TNFa / TGFb signatures in the myeloid
 ## compartment
 ################################################################################
 
@@ -21,7 +21,7 @@ traj_dir    <- file.path(out_root, "trajectories")
 
 for (d in c(table_dir, plot_dir, traj_dir)) dir.create(d, recursive = TRUE, showWarnings = FALSE)
 
-f_mono <- "all_samples_Mono_filtered.RDS"
+f_mono <- "all_samples_Mono_filtered.RDS" # subset on myeloid cell types
 
 celltype_col <- "cell.anno"
 patient_col  <- "patient.id"

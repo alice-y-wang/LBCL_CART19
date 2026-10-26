@@ -100,7 +100,7 @@ get_gsea_results <- function(df, cell, CAR_status, level, image = FALSE){
                               maxSize = 500)
     
     full.results <- rbind(hallmark.results, reactome.results)
-    full.results <- full.results %>% dplyr::filter(padj < 0.1)
+    #full.results <- full.results %>% dplyr::filter(padj < 0.1) # Do not include for full resulgs
     
     list_results <- append(list_results, list(full.results))
     
